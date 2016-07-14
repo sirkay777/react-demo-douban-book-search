@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "browserify -t [ babelify ] main.js -o js/bundle.js",
-    "kai":"console.log('test')"
+    "build": "browserify -t [ babelify ] main.js -o js/bundle.js"
   },
   "keywords": [],
   "author": "",
