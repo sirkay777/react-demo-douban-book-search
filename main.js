@@ -10,6 +10,10 @@ class Logo extends React.Component{
 }
 
 class SearchBox extends React.Component{
+  constructor(props){
+    super(props);
+    this.handleChange = this.handleChange.bind(this);
+  }
   render(){
     return (
       <div>
@@ -18,12 +22,12 @@ class SearchBox extends React.Component{
           placeholder="请输入搜索关键词"
           value={this.props.keyword}
           ref="KeywordTextInput"
-          onChange={this.handleChange.bind(this)}/>
+          onChange={this.handleChange}/>
         <input
           type="checkbox"
           checked={this.props.highRatingOnly}
           ref="highRatingOnlyInput"
-          onChange={this.handleChange.bind(this)}/>
+          onChange={this.handleChange}/>
           <label>只显示8星以上</label>
       </div>
     );
@@ -71,7 +75,6 @@ class DoubanBookSearch extends React.Component{
     };
     this.getBooks = _.debounce((keyword)=>{
       $.ajax({
-        crossDomain: true,
         dataType: 'jsonp',
         url:this.props.url + '?q=' + keyword
       }).done(
@@ -82,6 +85,7 @@ class DoubanBookSearch extends React.Component{
           () => console.log('get books error')
       );
     }, 500);
+    this.handleUserInput = this.handleUserInput.bind(this);
   }
   handleUserInput(keyword, highRatingOnly){
     this.setState({
@@ -98,7 +102,7 @@ class DoubanBookSearch extends React.Component{
     return (
       <div>
         <Logo/>
-        <SearchBox keyword={this.state.keyword} highRatingOnly={this.state.highRatingOnly} onUserInput={this.handleUserInput.bind(this)} />
+        <SearchBox keyword={this.state.keyword} highRatingOnly={this.state.highRatingOnly} onUserInput={this.handleUserInput} />
         <BookList books={this.state.books} highRatingOnly={this.state.highRatingOnly}/>
       </div>
     );
