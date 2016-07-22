@@ -1,0 +1,34 @@
+#douban-search-app{
+  margin:0 auto;
+  width:600px;
+}
+.logo{
+  margin:15px 0px;
+}
+.search-box{
+  display:block;
+  width:100%;
+  height:20px;
+  font-size:20px;
+  padding:10px 0px;
+  margin:10px 0px;
+}
+.book-list{
+  padding:0;
+}
+.book-list li{
+  display:block;
+  list-style: none;
+  padding:5px 0px;
+  margin-bottom:15px;
+  border-bottom:1px solid #cccccc;
+}
+.book-list li:after{
+  content: '';
+  display: block;
+  clear: both;
+}
+.book-list li img{
+  float:left;
+  margin-right:15px;
+}
