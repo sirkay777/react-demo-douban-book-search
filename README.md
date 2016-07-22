@@ -10,3 +10,7 @@ npm run build
 python -m SimpleHTTPServer
 ```
 Available at http://127.0.0.1:8000
+
+# Demo Screenshot
+
+![Demo](demo.png)
